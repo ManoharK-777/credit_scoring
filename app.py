@@ -39,7 +39,7 @@ st.markdown("""
 
 # ----------------- CACHED FUNCTIONS -----------------
 @st.cache_resource
-def load_and_prep_data(filepath):
+def fetch_and_prepare_data(filepath):
     if not os.path.exists(filepath):
         with st.spinner("Dataset not found locally. Downloading from OpenML..."):
             download_german_credit_data()
@@ -64,7 +64,7 @@ st.title("💳 Credit Scoring System")
 st.markdown("A Machine Learning Web Application to predict creditworthiness using financial data.")
 
 data_path = "data/german_credit_data.csv"
-raw_df, X, y, target_col, feature_names, preprocessors = load_and_prep_data(data_path)
+raw_df, X, y, target_col, feature_names, preprocessors = fetch_and_prepare_data(data_path)
 
 if raw_df is None:
     st.error(f"Dataset not found at `{data_path}`. Please ensure the data download step was successful.")
