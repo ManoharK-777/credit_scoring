@@ -51,8 +51,8 @@ def load_and_prep_data(filepath):
     return raw_df, X, y, target_col, feature_names, preprocessors
 
 @st.cache_resource
-def train_and_evaluate(X, y):
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+def train_and_evaluate(_X, _y):
+    X_train, X_test, y_train, y_test = train_test_split(_X, _y, test_size=0.2, random_state=42)
     trained_models, predictions, probabilities, training_times = train_and_evaluate_models(X_train, y_train, X_test)
     metrics_df = get_all_models_metrics(y_test, predictions, probabilities)
     best_model_name, best_metrics = find_best_model(metrics_df, primary_metric="ROC-AUC")
