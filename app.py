@@ -37,7 +37,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ----------------- CACHED FUNCTIONS -----------------
-@st.cache_data
+@st.cache_resource
 def load_and_prep_data(filepath):
     if not os.path.exists(filepath):
         return None, None, None, None, None, None
