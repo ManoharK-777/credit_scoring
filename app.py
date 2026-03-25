@@ -18,12 +18,11 @@ st.markdown("""
         background: #f0f2f6
     }
     .metric-card {
-        background-color: #ffffff;
-        border-radius: 10px;
+        background: linear-gradient(135deg, #e0f7fa, #e1bee7);
         padding: 20px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         text-align: center;
-        margin-bottom: 20px;
     }
     .metric-value {
         font-size: 2rem;
@@ -60,8 +59,11 @@ def train_and_evaluate(_X, _y):
 
 # ----------------- APP LOGIC -----------------
 
-st.title("💳 Credit Scoring System")
-st.markdown("A Machine Learning Web Application to predict creditworthiness using financial data.")
+st.title("💳 AI Credit Scoring Dashboard")
+st.markdown("### Intelligent Loan Approval System powered by Machine Learning")
+st.markdown("""
+Analyze customer financial data and predict creditworthiness with high accuracy.
+""")
 
 data_path = "data/german_credit_data.csv"
 raw_df, X, y, target_col, feature_names, preprocessors = fetch_and_prepare_data(data_path)
