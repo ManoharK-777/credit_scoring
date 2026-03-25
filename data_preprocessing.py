@@ -53,7 +53,7 @@ def preprocess_data(df, target_col=None):
     }
     
     # Encode Target if categorical
-    if y.dtype == 'object' or y.dtype.name == 'category':
+    if not pd.api.types.is_numeric_dtype(y):
         le = LabelEncoder()
         y = pd.Series(le.fit_transform(y), name=target_col)
         preprocessors['label_encoder'] = le
