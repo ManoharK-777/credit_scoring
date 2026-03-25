@@ -1,4 +1,6 @@
-# Credit Scoring Machine Learning Application 💳
+# CodeAlpha_CreditScoringModel 💳
+
+**Live Application:** [https://creditscoring-7cuvkhntrc4qsdht5kbaeh.streamlit.app/](https://creditscoring-7cuvkhntrc4qsdht5kbaeh.streamlit.app/)
 
 An end-to-end machine learning application to predict creditworthiness using the German Credit Dataset. 
 

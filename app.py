@@ -92,6 +92,22 @@ if page == "Dashboard & Model Performance":
     with cols[3]:
         st.markdown(f"<div class='metric-card'><div class='metric-label'>Features</div><div class='metric-value'>{len(X.columns)}</div></div>", unsafe_allow_html=True)
         
+    st.markdown("---")
+    st.subheader("📊 Business Insights")
+    st.markdown("""
+    - **Customers with higher income have lower risk**
+    - **Credit history strongly affects approval**
+    - **Loan amount vs risk relationship**
+    """)
+    
+    st.subheader("🔑 Top factors affecting credit")
+    st.markdown("""
+    1. **Credit History**
+    2. **Loan Amount**
+    3. **Income**
+    """)
+    st.markdown("---")
+        
     st.subheader("Model Performance Comparison")
     st.write("Compare the performance of multiple classification models:")
     fig_comp = plot_model_comparison(metrics_df)
@@ -197,3 +213,7 @@ elif page == "Make a Prediction":
                 
             except Exception as e:
                 st.error(f"An error occurred during prediction: {str(e)}")
+
+# Global Footer
+st.markdown("---")
+st.markdown("<p style='text-align: center; color: gray;'>Developed by Manohar K | Machine Learning Internship Project | CodeAlpha</p>", unsafe_allow_html=True)
