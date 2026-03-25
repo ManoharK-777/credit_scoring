@@ -1,0 +1,21 @@
+# Environments
+venv/
+env/
+env64/
+.env
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Data
+data/
+*.csv
+*.arff
+
+# Mac/Windows OS files
+.DS_Store
+Thumbs.db
