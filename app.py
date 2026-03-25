@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 from data_preprocessing import load_data, preprocess_data, preprocess_single_input
 from model_training import train_and_evaluate_models
 from evaluation import get_all_models_metrics, find_best_model, plot_model_comparison, plot_roc_curve, plot_confusion_matrix, plot_feature_importance
+from download_data import download_german_credit_data
 
 st.set_page_config(page_title="Credit Scoring System", page_icon="💳", layout="wide")
 
@@ -40,7 +41,11 @@ st.markdown("""
 @st.cache_resource
 def load_and_prep_data(filepath):
     if not os.path.exists(filepath):
-        return None, None, None, None, None, None
+        with st.spinner("Dataset not found locally. Downloading from OpenML..."):
+            download_german_credit_data()
+        if not os.path.exists(filepath):
+            return None, None, None, None, None, None
+            
     raw_df = load_data(filepath)
     X, y, target_col, feature_names, preprocessors = preprocess_data(raw_df)
     return raw_df, X, y, target_col, feature_names, preprocessors
